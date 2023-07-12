@@ -19,13 +19,9 @@ public class adminMapperTest {
     @Test
     public void test() {
         admin admin = new admin();
-        admin.setId(UUID.randomUUID().toString());
-        admin.setName("admin");
+        admin.setName("admin1");
         admin.setPassword("123456");
-        admin.setCreatetime(LocalDateTime.now());
-        admin.setUpdatetime(LocalDateTime.now());
-        admin.setDel(false);
         admin.setRole("admin");
-        adminMapper.insert(admin);
+        adminMapper.insertAdmin(admin);
     }
 }

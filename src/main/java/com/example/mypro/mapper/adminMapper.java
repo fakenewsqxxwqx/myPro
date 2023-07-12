@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface adminMapper extends BaseMapper<admin> {
-    int insertAdmin(admin admin);
+    void insertAdmin(admin admin);
 }
