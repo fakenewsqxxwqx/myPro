@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.mypro.mapper.adminMapper">
-    <insert id="insertAdmin" parameterType="com.example.mypro.bean.admin">
+<mapper namespace="com.example.mypro.mapper.billMapper">
+    <insert id="insertBill" parameterType="com.example.mypro.bean.bill">
 
     </insert>
 </mapper>

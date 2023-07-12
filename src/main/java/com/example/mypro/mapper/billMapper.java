@@ -6,4 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface billMapper extends BaseMapper<bill>{
+    int insertBill(bill bill);
 }
