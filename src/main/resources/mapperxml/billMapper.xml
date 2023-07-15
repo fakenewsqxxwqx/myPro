@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.mypro.mapper.billMapper">
     <insert id="insertBill" parameterType="com.example.mypro.bean.bill">
-
+        insert into bill (id, createtime, updatetime, del, productid, staraddress, endaddress, billstatus, buyerid)
+        values (#{id}, NOW(), NOW(), 1, #{productid}, #{staraddress}, #{endaddress}, #{billstatus}, #{buyerid});
     </insert>
 </mapper>

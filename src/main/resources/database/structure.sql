@@ -18,21 +18,6 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for admin
--- ----------------------------
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE `admin`  (
-  `id` char(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `createtime` datetime NOT NULL,
-  `updatetime` datetime NOT NULL,
-  `role` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `del` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
 -- Table structure for bill
 -- ----------------------------
 DROP TABLE IF EXISTS `bill`;
