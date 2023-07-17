@@ -49,6 +49,6 @@ public class user implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return !del;
+        return true;
     }
 }
