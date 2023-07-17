@@ -56,7 +56,6 @@ public class userServiceImpl implements userService {
         user.setName(userRegRequest.getName());
         user.setPassword(PasswordEncoder.encode(userRegRequest.getPassword()));
         user.setPhotourl(userRegRequest.getPhotourl());
-        user.setRole(userRegRequest.getRole());
         user.setMail(userRegRequest.getMail());
         userMapper.insertUser(user);
         return ResponseEntity.ok("注册成功");

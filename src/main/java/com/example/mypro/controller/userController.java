@@ -19,12 +19,6 @@ public class userController {
         return null;
     }
 
-    @GetMapping("/test")
-    public ResponseEntity<?> test(){
-        ResponseEntity<?> responseEntity = ResponseEntity.ok("test");
-        return responseEntity;
-    }
-
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody userRegRequest userRegRequest){
