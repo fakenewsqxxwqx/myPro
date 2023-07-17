@@ -1,0 +1,3 @@
+INSERT INTO `user` VALUES ('116bf1b7-1cdd-432d-9a0d-6df5e0442bfa', 'hello2', '$2a$10$mz/u3U6oRd7QY37uXkrR9e8LZOMNITSah2dIKkxUzKKxUl7ai2bW2', 'http://www.baidu.com', '2023-07-17 16:33:24', '2023-07-17 16:33:24', 'user', 'yy17633796552_2@outlook.com', 1);
+INSERT INTO `user` VALUES ('2cc3a6b0-edb5-4bfa-bfb2-9f355abbd4ac', 'hello', '$2a$10$9zkNgFatyxkNZuwCVflkpONHMyube83Sl9DNWSpEQobxftR0qmr.O', 'http://www.baidu.com', '2023-07-17 16:27:25', '2023-07-17 16:27:25', 'admin', 'yy17633796552@outlook.com', 1);
+INSERT INTO `user` VALUES ('66e50d6f-0faa-405f-9775-66760b794720', 'hello1', '$2a$10$bar/lwm2UCwe4RQNbzUv4e2zeTOD6MsgPOMF3Q9RW5bjOs/1NM1fu', 'http://www.baidu.com', '2023-07-17 16:32:03', '2023-07-17 16:32:03', 'admin', 'yy_17633796552@outlook.com', 1);
