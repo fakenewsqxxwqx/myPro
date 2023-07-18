@@ -5,4 +5,7 @@
         insert into user(id, name, password, photourl, createtime, updatetime, role, mail, del)
         values (#{id}, #{name}, #{password}, #{photourl}, NOW(), NOW(), 'user', #{mail}, 1);
     </insert>
+    <select id="getAllUserName" resultType="java.lang.String">
+        select name from user;
+    </select>
 </mapper>

@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.mypro.mapper.userMapper;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -21,7 +22,8 @@ public class userServiceImpl implements userService {
     private userMapper userMapper;
 
     @Autowired
-    private PasswordEncoder PasswordEncoder;
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         QueryWrapper<user> queryWrapper = new QueryWrapper<>();
@@ -54,10 +56,15 @@ public class userServiceImpl implements userService {
         user user = new user();
         user.setId(UUID.randomUUID().toString());
         user.setName(userRegRequest.getName());
-        user.setPassword(PasswordEncoder.encode(userRegRequest.getPassword()));
+        user.setPassword(passwordEncoder.encode(userRegRequest.getPassword()));
         user.setPhotourl(userRegRequest.getPhotourl());
         user.setMail(userRegRequest.getMail());
         userMapper.insertUser(user);
         return ResponseEntity.ok("注册成功");
+    }
+
+    @Override
+    public List<String> getAllUserName() {
+        return userMapper.getAllUserName();
     }
 }
