@@ -31,7 +31,7 @@ public class securityConfig {
         http
                 .authorizeRequests((authorizeRequests)
                         ->authorizeRequests
-                        .requestMatchers("/**").hasAuthority("admin")
+                        .requestMatchers("/**").hasAnyAuthority("user","admin")
                         .requestMatchers("/admin/**").hasAuthority("admin")
                 )
                 .formLogin((formLogin)
@@ -70,10 +70,9 @@ public class securityConfig {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers("/login");
+        return (web) -> web.ignoring().requestMatchers("/login","/register","/forgetPassword","/changePassword");
     }
 
 }

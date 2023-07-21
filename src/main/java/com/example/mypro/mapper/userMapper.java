@@ -11,4 +11,6 @@ public interface userMapper extends BaseMapper<user>{
     void insertUser(user user);
 
     List<String> getAllUserName();
+
+    void updatePassword(String id,String password);
 }

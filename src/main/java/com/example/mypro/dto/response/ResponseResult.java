@@ -21,4 +21,9 @@ public class ResponseResult<T> {
         this.code = code;
         this.msg = msg;
     }
+
+    public ResponseResult(String msg) {
+        this.code = 200;
+        this.msg = msg;
+    }
 }

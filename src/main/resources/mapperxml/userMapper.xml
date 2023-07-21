@@ -3,8 +3,11 @@
 <mapper namespace="com.example.mypro.mapper.userMapper">
     <insert id="insertUser" parameterType="com.example.mypro.bean.user">
         insert into user(id, name, password, photourl, createtime, updatetime, role, mail, del)
-        values (#{id}, #{name}, #{password}, #{photourl}, NOW(), NOW(), 'user', #{mail}, 1);
+        values (#{id}, #{name}, #{password}, #{photourl}, NOW(), NOW(), 'user', #{mail}, 0);
     </insert>
+    <update id="updatePassword">
+        update user set password = #{password}, updatetime=NOW() where id = #{id};
+    </update>
     <select id="getAllUserName" resultType="java.lang.String">
         select name from user;
     </select>
