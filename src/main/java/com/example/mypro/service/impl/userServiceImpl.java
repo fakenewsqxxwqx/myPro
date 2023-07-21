@@ -13,16 +13,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.mypro.mapper.userMapper;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
 public class userServiceImpl implements userService {
     @Autowired
     private userMapper userMapper;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -36,35 +32,18 @@ public class userServiceImpl implements userService {
         return user1;
     }
 
-    @Override
-    public ResponseEntity<?> register(userRegRequest userRegRequest) {
-        //判断用户名是否存在
-        QueryWrapper<user> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("name", userRegRequest.getName());
-        user user1 = userMapper.selectOne(queryWrapper);
-        if (user1 != null) {
-            return ResponseEntity.ok("用户名已存在");
-        }
-        //判断邮箱是否存在
-        QueryWrapper<user> queryWrapper1 = new QueryWrapper<>();
-        queryWrapper1.eq("mail", userRegRequest.getMail());
-        user user2 = userMapper.selectOne(queryWrapper1);
-        if (user2 != null) {
-            return ResponseEntity.ok("邮箱已存在");
-        }
-        //注册用户
-        user user = new user();
-        user.setId(UUID.randomUUID().toString());
-        user.setName(userRegRequest.getName());
-        user.setPassword(passwordEncoder.encode(userRegRequest.getPassword()));
-        user.setPhotourl(userRegRequest.getPhotourl());
-        user.setMail(userRegRequest.getMail());
-        userMapper.insertUser(user);
-        return ResponseEntity.ok("注册成功");
-    }
 
     @Override
-    public List<String> getAllUserName() {
-        return userMapper.getAllUserName();
+    public UserDetails getUserById(String id) {
+        QueryWrapper<user> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("id", id);
+        user user = userMapper.selectOne(queryWrapper);
+        if (user == null) {
+            throw new UsernameNotFoundException("用户不存在");
+        }
+        User user1 = new User(user.getName(), user.getPassword(), user.getAuthorities());
+        return user1;
     }
+
+
 }
